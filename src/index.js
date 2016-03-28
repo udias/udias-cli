@@ -18,8 +18,9 @@ if (notifier.update) {
 }
 
 Promise.all([
-  // DEVELOPMENT: 'ws://localhost:8000'
-  createSocket('ws://udias.online'),
+  // DEVELOPMENT:
+  // createSocket('ws://localhost:9000')
+  createSocket('ws://udias.online:64452')
   createPeer()
 ])
 .then(([ socket, peer ]) => parse({ socket, peer }))

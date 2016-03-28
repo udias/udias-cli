@@ -1,7 +1,7 @@
 /**
  * # Command: Tasks
  *
- *
+ * Get list of supported tasks.
  */
 
 import { Socket } from '../utilities/network'

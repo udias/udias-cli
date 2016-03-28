@@ -168,10 +168,11 @@ export default {
 }
 
 /**
- * [getTask description]
- * @param  {[type]} socket   [description]
- * @param  {[type]} taskType [description]
- * @return {[type]}          [description]
+ * Load tasks and create selection
+ *
+ * @param  {Socket}  socket   -
+ * @param  {string}  taskType -
+ * @return {Promise}          -
  */
 function getTask (socket, taskType) {
   return socket.once('/tasks/types').then((typeList) => {

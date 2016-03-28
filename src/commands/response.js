@@ -109,16 +109,3 @@ function getTask (socket, peer, infoHash) {
     .catch(reject)
   })
 }
-
-
-// peer.read(infoHash)
-//
-//
-//  const match = (scope === 'local' ? localEntries : globalEntries).find((entry) => {
-//    return entry.type === type && entry.data === data
-//  })
-//
-//  return resolve(match)
-//
-// const scope = task.match(/\[(\w+)\]/)[1]
-// const type = task.match(/(\S+):/)[1]
