@@ -13,7 +13,7 @@ export default {
   description: 'List the types of tasks which can be processed',
   action ({ socket }) {
     return socket.once('/tasks/types').then((types) => {
-      return types.map((type) => `${chalk.yellow(type.name)}: ${type.text}`)
+      return types.map((type) => `${chalk.yellow(type.type)}: ${type.text}`)
     })
   }
 }
