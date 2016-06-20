@@ -1,8 +1,11 @@
 {
   "name": "udias-cli",
   "description": "Commandline client for the udias platform",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "author": "Stefan Dühring | Autarc <autarc@gmail.com>",
+  "bin": {
+    "udias": "./bin/udias"
+  },
   "bugs": {
     "url": "https://github.com/udias/udias-task-checksum-creation/issues"
   },
