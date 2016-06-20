@@ -27,11 +27,14 @@ export default {
         console.log()
         spinner.start()
       }
+
       return peer.read(source).then((manifest) => {
+
         if (infoHash) {
           spinner.stop()
           spinner.clear()
         }
+
         return executeProcessing({ manifest, peer })
                 .then((data) => peer.write(data))
                 .then((torrent) => {
@@ -39,11 +42,13 @@ export default {
                     source: manifest._source,
                     data: torrent.infoHash
                   }
+
                   return socket.send('/tasks/results', message).then(() => {
                     return new Promise((resolve, reject) => {
                       console.log('=>', message)
                       // TODO:
                       // - wait for confirmed receive
+                      // setTimeout(resolve, 1000)
                     })
                   })
                 })
