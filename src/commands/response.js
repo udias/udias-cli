@@ -15,6 +15,10 @@ export default {
   description: 'Select a task to solve',
   action ({ param: infoHash, options, socket, peer }) {
     return getTask(socket, peer, infoHash).then((source) => {
+      // handle 'No entries available!'
+      if (!source) {
+        return
+      }
       if (infoHash) {
         const spinner = ora({
           text: 'Loading task',
