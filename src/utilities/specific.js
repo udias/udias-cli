@@ -7,8 +7,9 @@
 import request from 'got'
 import _eval from 'eval'
 
-// DEVELOPMENT:'http://localhost:8000'
-const serverUrl = 'http://udias.online'
+import config from '../../config'
+
+const serverUrl = `http://${config.host}:${config.port}`
 
 // processing blocks of task
 const INSTRUCTIONS = {

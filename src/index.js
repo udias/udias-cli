@@ -8,6 +8,8 @@ import updateNotifier from 'update-notifier'
 import parse from './parse'
 import { createSocket, createPeer } from './utilities/network'
 
+import config from '../config'
+
 import * as pkg from '../package.json'
 
 const notifier = updateNotifier({ pkg, updateCheckInterval: 1000 * 60 * 60 * 1 })
@@ -18,9 +20,7 @@ if (notifier.update) {
 }
 
 Promise.all([
-  // DEVELOPMENT:
-  // createSocket('ws://localhost:9000')
-  createSocket('ws://udias.online:64452')
+  createSocket(`ws://${config.host}:${config.port}`),
   createPeer()
 ])
 .then(([ socket, peer ]) => parse({ socket, peer }))
@@ -34,6 +34,8 @@ Promise.all([
   process.exit()
 })
 .catch((error) => {
-  console.error(error)
+  if (error) {
+    console.error(error)
+  }
   process.exit()
 })
